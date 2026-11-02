@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Terence Jose Paul Noel Paul – Finance Professional</title>
+<style>
+  :root{
+    --bg:#040404;--bg2:#0d0d0f;--panel:#101114;--panel2:#16171c;
+    --text:#f5f5f5;--muted:#a0a0a0;--red:#e63946;--red2:#ff1c2e;
+    --accent:#ff304f;--accent2:#ff5a6a;--border:rgba(255,28,46,.22);--card:#111215;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{background:radial-gradient(circle at top,#15090c 0%,#040404 45%,#000 100%);color:var(--text);font-family:'Segoe UI',Arial,sans-serif;line-height:1.6;}
+
+  nav{position:fixed;top:0;width:100%;background:rgba(0,0,0,.88);backdrop-filter:blur(16px);
+    z-index:999;padding:0 5%;display:flex;justify-content:space-between;align-items:center;height:66px;
+    border-bottom:1px solid var(--border);}
+  .logo{font-size:1.1rem;font-weight:800;color:var(--red);letter-spacing:.18rem;text-transform:uppercase;}
+  .nav-links{display:flex;gap:28px;list-style:none;}
+  .nav-links a{color:var(--muted);text-decoration:none;font-size:.85rem;letter-spacing:.1rem;text-transform:uppercase;
+    transition:.2s;}
+  .nav-links a:hover{color:var(--accent);}
+
+  #hero{min-height:100vh;display:flex;align-items:center;justify-content:center;
+    background:linear-gradient(135deg,#070406 0%,#0d0a10 45%,#110c12 100%);
+    position:relative;overflow:hidden;padding:88px 5% 40px;}
+  #hero::before{content:'';position:absolute;inset:0;background:
+      radial-gradient(circle at 18% 20%,rgba(255,255,255,.08),transparent 18%),
+      radial-gradient(circle at 82% 18%,rgba(255,48,79,.12),transparent 18%),
+      radial-gradient(circle at 50% 90%,rgba(230,57,70,.12),transparent 16%);
+    pointer-events:none;}
+  .hero-bg{position:absolute;inset:0;opacity:.24;background:
+      linear-gradient(180deg,rgba(255,255,255,.03) 0%,transparent 35%),
+      linear-gradient(90deg,rgba(255,255,255,.02) 0%,transparent 28%),
+      linear-gradient(135deg,rgba(255,48,79,.08),transparent 42%);pointer-events:none;}
+  .hero-bg-grid{position:absolute;inset:0;opacity:.16;
+    background-image:
+      linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
+      linear-gradient(90deg,rgba(255,255,255,.04) 1px, transparent 1px);
+    background-size:90px 90px;pointer-events:none;}
+  .hero-bg-graphic{position:absolute;right:-18%;top:10%;width:420px;height:420px;pointer-events:none;
+    transform:rotate(18deg) perspective(900px);}
+  .background-canvas{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;mix-blend-mode:screen;}
+  body{position:relative;}
+  section, nav, footer{position:relative;z-index:1;}
+  .hero-bg-graphic .bar{position:absolute;bottom:0;width:42px;border-radius:16px 16px 6px 6px;box-shadow:0 28px 40px rgba(0,0,0,.45);}
+  .bar1{left:44%;height:170px;background:linear-gradient(180deg,rgba(255,48,79,.92),rgba(255,48,79,.2));transform:translateX(-50%) translateY(18px) skewY(-8deg);}
+  .bar2{left:61%;height:250px;background:linear-gradient(180deg,rgba(255,48,79,.96),rgba(255,48,79,.22));transform:translateX(-50%) translateY(6px) skewY(-8deg);}
+  .bar3{left:77%;height:106px;background:linear-gradient(180deg,rgba(255,255,255,.9),rgba(255,255,255,.08));transform:translateX(-50%) translateY(34px) skewY(-8deg);}
+  .hero-bg-graphic .dot{position:absolute;left:52%;top:12%;width:32px;height:32px;border-radius:50%;
+    background:rgba(255,48,79,.9);box-shadow:0 0 40px rgba(255,48,79,.32);}
+  .hero-inner{max-width:980px;width:100%;z-index:1;display:flex;gap:54px;align-items:center;flex-wrap:wrap;}
+  .hero-avatar{width:170px;height:170px;border-radius:50%;border:4px solid rgba(255,48,79,.95);
+    background:radial-gradient(circle at top left,#ff304f,#720014 55%,#000 100%);
+    display:flex;align-items:center;justify-content:center;font-size:3.6rem;font-weight:800;color:#fff;flex-shrink:0;
+    box-shadow:0 0 48px rgba(230,57,70,.25);}
+  .hero-text h1{font-size:3rem;font-weight:800;line-height:1.05;margin-bottom:10px;}
+  .hero-text h1 span{color:var(--accent);}
+  .hero-subtitle{color:var(--accent2);font-size:1.05rem;font-weight:700;margin-bottom:18px;letter-spacing:.06rem;}
+  .hero-desc{color:var(--muted);font-size:1rem;max-width:560px;margin-bottom:28px;}
+  .hero-contacts{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:28px;}
+  .contact-chip{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.04);border:1px solid rgba(255,48,79,.18);
+    padding:8px 16px;border-radius:28px;font-size:.85rem;color:var(--muted);text-decoration:none;transition:.2s;}
+  .contact-chip:hover{border-color:var(--accent);color:var(--text);}
+  .hero-badges{display:flex;flex-wrap:wrap;gap:10px;}
+  .badge{background:rgba(230,57,70,.14);border:1px solid rgba(230,57,70,.25);color:var(--accent);
+    padding:7px 16px;border-radius:24px;font-size:.8rem;font-weight:700;}
+
+  section{padding:88px 5%;}
+  .sec-inner{max-width:980px;margin:0 auto;}
+  .sec-title{font-size:1.75rem;font-weight:800;margin-bottom:10px;display:flex;align-items:center;gap:14px;}
+  .sec-title::after{content:'';flex:1;height:1px;background:rgba(255,255,255,.08);}
+  .sec-label{color:var(--accent);font-size:.8rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;}
+
+  #about{background:rgba(255,255,255,.02);border-top:1px solid rgba(255,255,255,.04);}
+  .about-text{color:var(--muted);font-size:.98rem;max-width:780px;line-height:1.8;}
+
+  #experience{background:rgba(255,255,255,.02);border-top:1px solid rgba(255,255,255,.04);}
+  .timeline{position:relative;padding-left:32px;}
+  .timeline::before{content:'';position:absolute;left:4px;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--accent),var(--accent2));}
+  .tl-item{position:relative;margin-bottom:46px;padding-left:18px;}
+  .tl-dot{position:absolute;left:-36px;top:4px;width:18px;height:18px;border-radius:50%;background:var(--accent);border:3px solid var(--bg);box-shadow:0 0 0 4px rgba(230,57,70,.16);}
+  .tl-meta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:6px;}
+  .tl-date{font-size:.78rem;color:var(--accent2);font-weight:700;letter-spacing:.08rem;}
+  .tl-loc{font-size:.78rem;color:var(--muted);}
+  .tl-title{font-size:1.08rem;font-weight:800;margin-bottom:4px;color:#fff;}
+  .tl-company{color:var(--accent);font-size:.9rem;font-weight:700;margin-bottom:6px;}
+  .tl-client{color:var(--muted);font-size:.82rem;font-style:italic;margin-bottom:10px;}
+  .tl-list{list-style:none;display:flex;flex-direction:column;gap:6px;}
+  .tl-list li{font-size:.88rem;color:var(--muted);padding-left:18px;position:relative;}
+  .tl-list li::before{content:'▸';position:absolute;left:0;color:var(--accent);font-size:.8rem;}
+
+  #education{background:rgba(255,255,255,.02);border-top:1px solid rgba(255,255,255,.04);}
+  .edu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px;}
+  .edu-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:26px;transition:.2s;position:relative;overflow:hidden;}
+  .edu-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent2));}
+  .edu-card:hover{border-color:rgba(255,48,79,.3);transform:translateY(-3px);}
+  .edu-degree{font-size:1rem;font-weight:700;margin-bottom:6px;color:#fff;}
+  .edu-school{color:var(--accent);font-size:.9rem;font-weight:700;margin-bottom:6px;}
+  .edu-period{color:var(--muted);font-size:.8rem;}
+
+  #skills{background:rgba(255,255,255,.01);border-top:1px solid rgba(255,255,255,.04);}
+  .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;}
+  .skill-group{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:24px;}
+  .skill-group h3{font-size:.92rem;font-weight:800;color:var(--accent);letter-spacing:.04rem;text-transform:uppercase;margin-bottom:16px;}
+  .skill-tags{display:flex;flex-wrap:wrap;gap:10px;}
+  .skill-tag{background:rgba(230,57,70,.12);border:1px solid rgba(230,57,70,.18);color:var(--text);padding:6px 14px;border-radius:999px;font-size:.82rem;}
+
+  #certifications{background:rgba(255,255,255,.02);border-top:1px solid rgba(255,255,255,.04);}
+  .cert-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;}
+  .cert-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:14px;padding:20px;display:flex;gap:14px;align-items:flex-start;transition:.2s;}
+  .cert-card:hover{border-color:rgba(255,48,79,.34);}
+  .cert-icon{width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;}
+  .cert-name{font-size:.88rem;font-weight:700;margin-bottom:4px;color:#fff;}
+  .cert-src{font-size:.77rem;color:var(--muted);}
+
+  #languages{background:rgba(255,255,255,.01);border-top:1px solid rgba(255,255,255,.04);}
+  .lang-grid{display:flex;flex-wrap:wrap;gap:16px;}
+  .lang-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:14px;padding:18px 24px;display:flex;flex-direction:column;align-items:center;gap:8px;min-width:120px;}
+  .lang-name{font-weight:700;font-size:.98rem;color:#fff;}
+  .lang-level{font-size:.78rem;color:var(--accent);font-weight:700;}
+  .lang-stars{display:flex;gap:4px;}
+  .star{width:10px;height:10px;border-radius:50%;background:var(--accent);}
+  .star.empty{background:rgba(255,255,255,.12);}
+
+  #contact{background:rgba(255,255,255,.02);border-top:1px solid rgba(255,255,255,.04);text-align:center;}
+  .contact-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:16px;margin-top:30px;}
+  .contact-btn{display:flex;align-items:center;gap:10px;padding:14px 28px;border-radius:12px;text-decoration:none;font-weight:700;font-size:.9rem;transition:.2s;}
+  .contact-btn.primary{background:var(--accent);color:#fff;}
+  .contact-btn.primary:hover{background:var(--red2);}
+  .contact-btn.secondary{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);color:var(--text);}
+  .contact-btn.secondary:hover{border-color:var(--accent);color:var(--accent);}
+
+  footer{background:transparent;border-top:1px solid rgba(255,255,255,.06);text-align:center;padding:22px;font-size:.8rem;color:var(--muted);}
+
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease;}
+  .revealed{opacity:1;transform:none;}
+
+  @media(max-width:780px){
+    .hero-inner{flex-direction:column;gap:32px;text-align:center;}
+    .hero-text h1{font-size:2.4rem;}
+    .hero-contacts,.hero-badges{justify-content:center;}
+    .sec-title{font-size:1.4rem;}
+    nav .nav-links{gap:16px;}
+    .nav-links a{font-size:.78rem;}
+    .hero-bg-graphic{display:none;}
+  }
+  @media(max-width:520px){
+    .hero-avatar{width:150px;height:150px;font-size:3rem;}
+    section{padding:68px 5%;}
+  }
+</style>
+</head>
+<body>
+<canvas id="sceneCanvas" class="background-canvas"></canvas>
+<nav>
+  <div class="logo">TJP</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-bg-grid"></div>
+  <div class="hero-bg-graphic">
+    <span class="bar bar1"></span>
+    <span class="bar bar2"></span>
+    <span class="bar bar3"></span>
+    <span class="dot"></span>
+  </div>
+  <div class="hero-inner">
+    <div class="hero-avatar">TJ</div>
+    <div class="hero-text">
+      <div class="sec-label">Finance &amp; Analytics Professional</div>
+      <h1>Terence <span>Jose Paul</span><br>Noel Paul</h1>
+      <div class="hero-subtitle">Finance Analyst · SAP Expert · Power BI · Data-Driven Decision Maker</div>
+      <p class="hero-desc">Analytical finance professional with hands-on experience in accounting operations, SAP-based financial processes, reporting, reconciliation, and data analysis. Currently pursuing a Master's in Finance, Banking and Investment.</p>
+      <div class="hero-contacts">
+        <a href="tel:+421911914461" class="contact-chip">
+          <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+          (+421) 911 914 461
+        </a>
+        <a href="mailto:terence20010208@gmail.com" class="contact-chip">
+          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          terence20010208@gmail.com
+        </a>
+        <a href="https://www.linkedin.com/in/terence-jose-paul-noel-paul-b769381b3/" target="_blank" class="contact-chip">
+          <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          LinkedIn
+        </a>
+        <span class="contact-chip">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          Bratislava, Slovakia
+        </span>
+      </div>
+      <div class="hero-badges">
+        <span class="badge">SAP FI / S/4HANA</span>
+        <span class="badge">Power BI</span>
+        <span class="badge">Advanced Excel</span>
+        <span class="badge">Accounts Payable</span>
+        <span class="badge">Financial Reporting</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="sec-inner reveal">
+    <div class="sec-label">Who I Am</div>
+    <h2 class="sec-title">About Me</h2>
+    <p class="about-text" style="margin-top:20px;">
+      I am an analytical finance professional with experience in accounting operations, SAP-based financial processes, reporting, reconciliation, and data analysis. Skilled in Advanced Excel, Power BI, and financial reporting with a strong ability to work with large datasets, identify trends, and support data-driven decision-making.
+      <br><br>
+      I am experienced in collaborating with cross-functional stakeholders across international environments and committed to continuous improvement, process optimization, and operational excellence. Currently pursuing a Master's degree in Finance, Banking and Investment at the Technical University of Košice, while expanding expertise in business reporting, analytics, and data visualization.
+    </p>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="sec-inner">
+    <div class="sec-label">Career Journey</div>
+    <h2 class="sec-title">Work Experience</h2>
+    <div class="timeline" style="margin-top:36px;">
+
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-meta">
+          <span class="tl-date">02/2026 – 05/2026</span>
+          <span class="tl-loc">📍 Košice, Slovakia</span>
+        </div>
+        <div class="tl-title">Finance Intern</div>
+        <div class="tl-company">Holcim EBS</div>
+        <ul class="tl-list">
+          <li>Developed and maintained reporting materials supporting finance process transformation initiatives across P2P, R2R, and O2C functions.</li>
+          <li>Consolidated and structured financial and accounting documentation from 954+ sources, improving accessibility, reporting consistency, and knowledge management.</li>
+          <li>Utilized Excel, Google Workspace, and AI-enabled tools to analyze information, automate documentation processes, and improve reporting efficiency.</li>
+          <li>Collaborated with multiple stakeholders across finance teams to support reporting requirements and process improvement initiatives.</li>
+          <li>Gained exposure to shared service reporting environments, data management, and business process analytics.</li>
+        </ul>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-meta">
+          <span class="tl-date">07/2023 – 08/2024</span>
+          <span class="tl-loc">📍 Chennai, India</span>
+        </div>
+        <div class="tl-title">Assistant Accountant</div>
+        <div class="tl-company">Infosys BPM Limited</div>
+        <div class="tl-client">Client: Centric Brands Holding LLC, USA</div>
+        <ul class="tl-list">
+          <li>Managed accounts payable, processing +1,200 invoices/month averaging $5M while maintaining vendor relationships and ensuring timely payments.</li>
+          <li>Achieved 100% invoice processing accuracy by reconciling, verifying entries, and comparing system reports to balances.</li>
+          <li>Processed Non-PO invoices in SAP FI, ensuring accurate GL, Profit Centre, and Cost Centre coding in compliance with accounting policies.</li>
+          <li>Processed customs duty invoices (PO Invoices) via SAP ZMIRO and posted entries in A2000 ERP with correct GL mapping.</li>
+          <li>Supported utility invoice verification and payment processing activities, ensuring timely settlement and compliance.</li>
+          <li>Analyzed transaction data and SAP records to investigate discrepancies, resolve queries, and improve reporting accuracy.</li>
+          <li>Collaborated with business and logistics departments to clear missing customs invoices, ensuring smooth month-end closure.</li>
+        </ul>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-meta">
+          <span class="tl-date">01/2022 – 06/2023</span>
+          <span class="tl-loc">📍 Coimbatore, India</span>
+        </div>
+        <div class="tl-title">Executive – Accounts Payable Debit Balance Analyst</div>
+        <div class="tl-company">Pierian Services Private Limited</div>
+        <div class="tl-client">Client: Ford Motor Company | Markets: USA, Mexico, Canada</div>
+        <ul class="tl-list">
+          <li>Analyzed and resolved 200–250 debit balance cases per month, identifying invoice discrepancies, payment errors, and documentation gaps.</li>
+          <li>Processed daily adjustment and offset entries in SAP S/4HANA and IBM Mainframe (Host on Demand) to reconcile vendor balances.</li>
+          <li>Performed remittance validation and payment checks for USA, Mexico, and Canada vendors, ensuring accurate clearing of open items.</li>
+          <li>Managed and resolved 40+ vendor queries per day through SAP CRM, ensuring accurate responses, re-routing, and timely closure.</li>
+          <li>Provided extended Month-End Close (MEC) support, ensuring balances were reconciled and TAT consistently met.</li>
+          <li>Monitored large transaction datasets, identifying discrepancies and supporting data-driven resolution processes.</li>
+        </ul>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-meta">
+          <span class="tl-date">07/2021 – 01/2022</span>
+          <span class="tl-loc">📍 Coimbatore, India</span>
+        </div>
+        <div class="tl-title">Assistant – Finance and Admin</div>
+        <div class="tl-company">ThinkInk</div>
+        <ul class="tl-list">
+          <li>Maintained financial records and generated supporting reports using Tally Prime and Excel.</li>
+          <li>Performed reconciliations and maintained accurate financial data to support reporting and control activities.</li>
+          <li>Reviewed financial postings and supporting documents for accuracy, completeness, and compliance with company policies.</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="sec-inner reveal">
+    <div class="sec-label">Academic Background</div>
+    <h2 class="sec-title">Education</h2>
+    <div class="edu-grid" style="margin-top:28px;">
+      <div class="edu-card">
+        <div style="font-size:1.8rem;margin-bottom:10px;">🎓</div>
+        <div class="edu-degree">Master's in Finance, Banking and Investment</div>
+        <div class="edu-school">Technical University of Košice</div>
+        <div class="edu-period">09/2024 – 08/2026 · Košice, Slovakia</div>
+      </div>
+      <div class="edu-card">
+        <div style="font-size:1.8rem;margin-bottom:10px;">📚</div>
+        <div class="edu-degree">Bachelor's in Commerce with Professional Accounting</div>
+        <div class="edu-school">Sri Ramakrishna College of Arts and Science</div>
+        <div class="edu-period">05/2018 – 05/2021 · Coimbatore, India</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="sec-inner reveal">
+    <div class="sec-label">Toolkit</div>
+    <h2 class="sec-title">Skills &amp; Expertise</h2>
+    <div class="skills-grid" style="margin-top:28px;">
+      <div class="skill-group">
+        <h3>🖥️ ERP &amp; Systems</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">SAP FI</span>
+          <span class="skill-tag">SAP S/4HANA</span>
+          <span class="skill-tag">SAP ZMIRO</span>
+          <span class="skill-tag">SAP CRM</span>
+          <span class="skill-tag">A2000 ERP</span>
+          <span class="skill-tag">IBM Mainframe</span>
+          <span class="skill-tag">Tally Prime</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>📊 Analytics &amp; Reporting</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">Power BI</span>
+          <span class="skill-tag">Advanced Excel</span>
+          <span class="skill-tag">Macros</span>
+          <span class="skill-tag">Pivot Tables</span>
+          <span class="skill-tag">VLOOKUP / XLOOKUP</span>
+          <span class="skill-tag">Dashboard Development</span>
+          <span class="skill-tag">KPI Reporting</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>💰 Finance Operations</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">Accounts Payable</span>
+          <span class="skill-tag">Financial Reporting</span>
+          <span class="skill-tag">Reconciliation</span>
+          <span class="skill-tag">Month-End Close</span>
+          <span class="skill-tag">GL Coding</span>
+          <span class="skill-tag">Vendor Management</span>
+          <span class="skill-tag">Invoice Processing</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>🛠️ Productivity &amp; Tools</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">MS Office Suite</span>
+          <span class="skill-tag">Google Workspace</span>
+          <span class="skill-tag">Process Documentation</span>
+          <span class="skill-tag">AI-Enabled Tools</span>
+          <span class="skill-tag">Data Analysis</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications" style="background:var(--navy);">
+  <div class="sec-inner reveal">
+    <div class="sec-label">Learning &amp; Development</div>
+    <h2 class="sec-title">Certifications</h2>
+    <div class="cert-grid" style="margin-top:28px;">
+      <div class="cert-card">
+        <div class="cert-icon">🤖</div>
+        <div>
+          <div class="cert-name">AI For Everyone</div>
+          <div class="cert-src">Coursera</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">💻</div>
+        <div>
+          <div class="cert-name">Operating Systems: Overview, Administration &amp; Security</div>
+          <div class="cert-src">IBM · Coursera</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">📈</div>
+        <div>
+          <div class="cert-name">Business Analytics for Decision Making</div>
+          <div class="cert-src">Coursera</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">📊</div>
+        <div>
+          <div class="cert-name">Preparing Data for Analysis with Microsoft Excel</div>
+          <div class="cert-src">Microsoft · Coursera</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LANGUAGES -->
+<section id="languages" style="background:var(--navy2);">
+  <div class="sec-inner reveal">
+    <div class="sec-label">Communication</div>
+    <h2 class="sec-title">Languages</h2>
+    <div class="lang-grid" style="margin-top:28px;">
+      <div class="lang-card">
+        <div style="font-size:1.4rem;">🇮🇳</div>
+        <div class="lang-name">Tamil</div>
+        <div class="lang-level">Mother Tongue</div>
+        <div class="lang-stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
+      </div>
+      <div class="lang-card">
+        <div style="font-size:1.4rem;">🇬🇧</div>
+        <div class="lang-name">English</div>
+        <div class="lang-level">C2 – Proficient</div>
+        <div class="lang-stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
+      </div>
+      <div class="lang-card">
+        <div style="font-size:1.4rem;">🇸🇰</div>
+        <div class="lang-name">Slovak</div>
+        <div class="lang-level">A1 – Beginner</div>
+        <div class="lang-stars"><div class="star"></div><div class="star empty"></div><div class="star empty"></div><div class="star empty"></div><div class="star empty"></div></div>
+      </div>
+      <div class="lang-card">
+        <div style="font-size:1.4rem;">🇩🇪</div>
+        <div class="lang-name">German</div>
+        <div class="lang-level">A1 – Beginner</div>
+        <div class="lang-stars"><div class="star"></div><div class="star empty"></div><div class="star empty"></div><div class="star empty"></div><div class="star empty"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="sec-inner reveal">
+    <div class="sec-label">Get In Touch</div>
+    <h2 class="sec-title" style="justify-content:center;">Contact Me</h2>
+    <p style="color:var(--muted);margin-top:14px;font-size:.95rem;">
+      Open to finance, analytics, and accounting opportunities. Feel free to reach out!
+    </p>
+    <div class="contact-grid">
+      <a href="mailto:terence20010208@gmail.com" class="contact-btn primary">✉️ &nbsp;Send Email</a>
+      <a href="https://www.linkedin.com/in/terence-jose-paul-noel-paul-b769381b3/" target="_blank" class="contact-btn secondary">💼 &nbsp;LinkedIn Profile</a>
+      <a href="tel:+421911914461" class="contact-btn secondary">📞 &nbsp;(+421) 911 914 461</a>
+    </div>
+    <p style="color:var(--muted);font-size:.8rem;margin-top:28px;">📍 Mlynarovicova 2471/9, Bratislava 85103, Slovakia</p>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Terence Jose Paul Noel Paul · Finance Professional · Bratislava, Slovakia</p>
+</footer>
+
+<script>
+  const canvas = document.getElementById('sceneCanvas');
+  const ctx = canvas.getContext('2d');
+  const state = {
+    w: 0,
+    h: 0,
+    dpr: window.devicePixelRatio || 1,
+    globe: 0,
+    scroll: 0,
+    particles: [],
+    bars: [],
+    nodes: [],
+    lines: []
+  };
+
+  function resizeScene() {
+    state.w = window.innerWidth;
+    state.h = window.innerHeight;
+    canvas.width = state.w * state.dpr;
+    canvas.height = state.h * state.dpr;
+    canvas.style.width = state.w + 'px';
+    canvas.style.height = state.h + 'px';
+    ctx.setTransform(state.dpr, 0, 0, state.dpr, 0, 0);
+  }
+
+  function randomBetween(min, max) {
+    return min + Math.random() * (max - min);
+  }
+
+  function initScene() {
+    state.particles = Array.from({ length: 70 }, () => ({
+      x: randomBetween(0, state.w),
+      y: randomBetween(0, state.h),
+      r: randomBetween(1.4, 3.8),
+      speed: randomBetween(0.12, 0.45),
+      phase: randomBetween(0, Math.PI * 2)
+    }));
+
+    state.bars = Array.from({ length: 8 }, (_, index) => ({
+      x: state.w * 0.22 + index * 80,
+      y: state.h * 0.6,
+      h: randomBetween(90, 220),
+      color: index % 2 === 0 ? 'rgba(255,79,115,.9)' : 'rgba(255,48,79,.7)',
+      speed: randomBetween(0.1, 0.35)
+    }));
+
+    state.nodes = Array.from({ length: 18 }, () => ({
+      x: randomBetween(state.w * 0.2, state.w * 0.8),
+      y: randomBetween(state.h * 0.15, state.h * 0.75),
+      r: randomBetween(2.4, 4.2),
+      angle: randomBetween(0, Math.PI * 2),
+      speed: randomBetween(0.001, 0.004)
+    }));
+
+    state.lines = Array.from({ length: 10 }, () => ({
+      x: randomBetween(state.w * 0.12, state.w * 0.85),
+      y: randomBetween(state.h * 0.2, state.h * 0.7),
+      len: randomBetween(44, 142),
+      angle: randomBetween(-0.35, 0.35),
+      alpha: randomBetween(0.12, 0.28)
+    }));
+  }
+
+  function updateScene() {
+    state.globe += 0.007;
+    state.scroll = window.scrollY / state.h;
+
+    state.particles.forEach(p => {
+      p.x += Math.cos(p.phase) * p.speed * 0.8;
+      p.y += Math.sin(p.phase) * p.speed * 0.65;
+      p.phase += 0.003;
+      if (p.x > state.w + 20) p.x = -20;
+      if (p.x < -20) p.x = state.w + 20;
+      if (p.y > state.h + 20) p.y = -20;
+      if (p.y < -20) p.y = state.h + 20;
+    });
+
+    state.bars.forEach(bar => {
+      bar.h += Math.sin(performance.now() * 0.0006 + bar.x) * 0.35;
+      bar.h = Math.max(68, Math.min(260, bar.h));
+    });
+
+    state.nodes.forEach(node => {
+      node.x += Math.cos(node.angle) * node.speed * 18;
+      node.y += Math.sin(node.angle) * node.speed * 18;
+      node.angle += node.speed * 0.5;
+      if (node.x < state.w * 0.16 || node.x > state.w * 0.84) node.angle += Math.PI * 0.4;
+      if (node.y < state.h * 0.12 || node.y > state.h * 0.88) node.angle += Math.PI * 0.4;
+    });
+  }
+
+  function drawBackground() {
+    const gradient = ctx.createLinearGradient(0, 0, state.w, state.h);
+    gradient.addColorStop(0, '#090409');
+    gradient.addColorStop(0.35, '#100a10');
+    gradient.addColorStop(1, '#080508');
+    ctx.fillStyle = gradient;
+    ctx.fillRect(0, 0, state.w, state.h);
+
+    ctx.save();
+    ctx.fillStyle = 'rgba(255,255,255,.02)';
+    ctx.fillRect(0, 0, state.w, state.h);
+    ctx.restore();
+  }
+
+  function drawParticles() {
+    state.particles.forEach(p => {
+      ctx.beginPath();
+      ctx.fillStyle = 'rgba(255,255,255,0.18)';
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fill();
+    });
+  }
+
+  function drawGlobe() {
+    const radius = Math.min(state.w, state.h) * 0.18;
+    const centerX = state.w * 0.78;
+    const centerY = state.h * 0.32 - state.scroll * 40;
+    ctx.save();
+    ctx.translate(centerX, centerY);
+    ctx.rotate(state.globe * 0.6);
+    ctx.strokeStyle = 'rgba(255,255,255,.18)';
+    ctx.lineWidth = 1.2;
+    ctx.beginPath();
+    ctx.arc(0, 0, radius, 0, Math.PI * 2);
+    ctx.stroke();
+    for (let i = 1; i < 6; i++) {
+      ctx.beginPath();
+      ctx.arc(0, 0, radius * (i / 6), 0, Math.PI * 2);
+      ctx.stroke();
+    }
+    for (let i = -3; i <= 3; i++) {
+      ctx.beginPath();
+      ctx.ellipse(0, 0, radius, radius * 0.25, i * 0.32, 0, Math.PI * 2);
+      ctx.stroke();
+    }
+    ctx.restore();
+
+    ctx.save();
+    ctx.strokeStyle = 'rgba(255,80,114,.35)';
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    ctx.arc(centerX + Math.sin(state.globe * 0.9) * 18, centerY, radius * 0.7, 0, Math.PI * 1.3);
+    ctx.stroke();
+    ctx.restore();
+  }
+
+  function drawCandles() {
+    state.bars.forEach((bar, index) => {
+      const x = bar.x;
+      const base = state.h * 0.58 + state.scroll * 30;
+      const height = bar.h;
+      const width = 24;
+      const shade = index % 2 ? 'rgba(255,48,79,.82)' : 'rgba(255,152,183,.82)';
+      ctx.save();
+      ctx.fillStyle = shade;
+      ctx.shadowColor = 'rgba(255,48,79,.35)';
+      ctx.shadowBlur = 20;
+      ctx.fillRect(x, base - height, width, height);
+      ctx.fillStyle = 'rgba(255,255,255,.08)';
+      ctx.fillRect(x + width * 0.5 - 1.5, base - height - 18, 3, 18);
+      ctx.restore();
+
+      ctx.beginPath();
+      ctx.strokeStyle = 'rgba(255,255,255,.12)';
+      ctx.lineWidth = 1.1;
+      ctx.moveTo(x + width * 0.5, base - height - 10);
+      ctx.lineTo(x + width * 0.5, base + 12);
+      ctx.stroke();
+    });
+  }
+
+  function drawNetwork() {
+    ctx.save();
+    ctx.strokeStyle = 'rgba(255,48,79,.25)';
+    ctx.lineWidth = 1;
+    state.nodes.forEach((node, index) => {
+      const next = state.nodes[(index + 5) % state.nodes.length];
+      ctx.beginPath();
+      ctx.moveTo(node.x, node.y);
+      ctx.lineTo(next.x, next.y);
+      ctx.stroke();
+    });
+    ctx.restore();
+
+    state.nodes.forEach(node => {
+      ctx.beginPath();
+      ctx.fillStyle = 'rgba(255,255,255,.9)';
+      ctx.arc(node.x, node.y, node.r, 0, Math.PI * 2);
+      ctx.fill();
+    });
+  }
+
+  function drawDashboard() {
+    const offset = state.scroll * 32;
+    ctx.save();
+    ctx.fillStyle = 'rgba(18,18,22,.64)';
+    ctx.fillRect(state.w * 0.06, state.h * 0.12 + offset, 180, 120);
+    ctx.fillStyle = 'rgba(255,255,255,.9)';
+    ctx.font = '600 12px Arial';
+    ctx.fillText('Market Pulse', state.w * 0.075, state.h * 0.15 + offset);
+    ctx.fillStyle = '#ff5a6a';
+    ctx.fillRect(state.w * 0.075, state.h * 0.165 + offset, 72, 4);
+    ctx.fillStyle = 'rgba(255,255,255,.82)';
+    ctx.font = '700 22px Arial';
+    ctx.fillText('+14.8%', state.w * 0.075, state.h * 0.205 + offset);
+    ctx.fillStyle = 'rgba(255,255,255,.55)';
+    ctx.font = '12px Arial';
+    ctx.fillText('Equity index', state.w * 0.075, state.h * 0.235 + offset);
+    ctx.restore();
+
+    ctx.save();
+    ctx.fillStyle = 'rgba(18,18,22,.48)';
+    ctx.fillRect(state.w * 0.62, state.h * 0.64 - offset, 210, 114);
+    ctx.strokeStyle = 'rgba(255,255,255,.08)';
+    ctx.strokeRect(state.w * 0.62, state.h * 0.64 - offset, 210, 114);
+    ctx.fillStyle = '#fff';
+    ctx.font = '700 13px Arial';
+    ctx.fillText('AI Trend Score', state.w * 0.635, state.h * 0.68 - offset);
+    ctx.fillStyle = '#ff304f';
+    ctx.fillRect(state.w * 0.635, state.h * 0.69 - offset, 140, 8);
+    ctx.fillStyle = 'rgba(255,255,255,.85)';
+    ctx.font = '16px Arial';
+    ctx.fillText('0.87', state.w * 0.635, state.h * 0.75 - offset);
+    ctx.restore();
+  }
+
+  function drawWave() {
+    ctx.save();
+    ctx.strokeStyle = 'rgba(255,79,115,.7)';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    const base = state.h * 0.46;
+    for (let i = 0; i < state.w; i += 18) {
+      const y = base + Math.sin(i * 0.012 + state.globe * 0.9) * 24 + Math.cos(i * 0.021) * 14;
+      if (i === 0) ctx.moveTo(i, y);
+      else ctx.lineTo(i, y);
+    }
+    ctx.stroke();
+    ctx.restore();
+  }
+
+  function render() {
+    updateScene();
+    drawBackground();
+    drawWave();
+    drawParticles();
+    drawGlobe();
+    drawCandles();
+    drawNetwork();
+    drawDashboard();
+    state.lines.forEach(line => {
+      ctx.strokeStyle = `rgba(255,48,79,${line.alpha})`;
+      ctx.lineWidth = 1.2;
+      ctx.beginPath();
+      ctx.moveTo(line.x, line.y);
+      ctx.lineTo(line.x + line.len, line.y - line.len * 0.18);
+      ctx.stroke();
+    });
+    requestAnimationFrame(render);
+  }
+
+  function init() {
+    resizeScene();
+    initScene();
+    window.addEventListener('resize', () => { resizeScene(); initScene(); });
+    window.addEventListener('scroll', () => { state.scroll = window.scrollY / state.h; });
+    render();
+
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('revealed'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  }
+
+  init();
+</script>
+</body>
+</html>
